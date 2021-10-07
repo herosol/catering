@@ -1,0 +1,598 @@
+@media screen and (min-width:1600px) and (max-width:1920px) {
+
+
+
+    /*================== Large screen  ===========================*/
+
+
+
+}
+
+
+
+
+
+
+
+@media screen and (max-width: 1200px) and (min-width: 992px){
+
+
+
+
+
+}
+
+
+
+
+
+
+
+@media screen and (min-width:992px) and (max-width:1200px) {
+
+
+
+
+
+}
+
+
+
+
+
+
+
+@media screen and (max-width:1200px) {
+
+
+
+
+
+
+
+    /*==================head tags=================*/
+
+
+
+
+
+/*====================form placeholder font==============*/
+
+
+
+
+
+
+
+::-webkit-input-placeholder { 
+
+
+
+  font-size: 12px;
+
+
+
+}
+
+
+
+::-moz-placeholder {
+
+
+
+  font-size: 12px;
+
+
+
+}
+
+
+
+:-ms-input-placeholder {
+
+
+
+  font-size: 12px;
+
+
+
+}
+
+
+
+:-moz-placeholder { 
+
+
+
+  font-size: 12px;
+
+
+
+}
+#banner .item{
+    height: 500px;
+}
+#abt{
+    margin-top: 500px;
+}
+
+}
+
+
+
+
+
+
+
+@media screen and (min-width:768px) and (max-width:991px) {
+
+   
+
+
+
+}
+
+
+
+
+
+
+
+@media screen and (max-width:991px) {
+
+
+
+    /*_____ Navigation _____*/
+
+    html.move {
+
+        overflow: hidden !important;
+
+    }
+
+    body {
+
+        left: 0;
+
+    padding-top: 215px;
+
+    transition: all 0.5s ease;
+
+    }
+
+    body.move {
+
+    overflow: hidden !important;
+
+    position: relative;
+
+    left: -250px;
+
+    transition: all 0.5s ease;
+
+    }
+
+    header {
+
+        position: absolute !important;
+
+        top: -2px !important;
+
+        height: 215px;
+        border-bottom:none;
+
+    }
+
+    header.logged {
+
+        position: fixed !important;
+
+        height: 64px;
+
+    }
+
+    header .proIco {
+
+    margin-right: 34px;
+
+    }
+
+    
+    .toggle {
+        display: flex;
+    transform: translateY(90px);
+    position: relative;
+    background: #232424;
+    width: fit-content;
+    margin: 0px auto;
+    border-top: 4px solid #dbc263;
+    padding: 3px 10px;
+
+    }
+    .toggle em{
+        color: #fff;
+    margin-left:40px;
+    font-size: 20px;
+    margin-bottom: 3px;
+    }
+
+    /*#nav{
+
+        height: 376px;
+
+        overflow: auto;
+
+    }*/
+
+
+
+    nav.move {
+
+    right: 0;
+
+    }
+
+
+
+    nav {
+
+        position: fixed !important;
+        top: 212px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        /* width: 250px; */
+        display: block;
+        margin: 0 !important;
+        background: #39424b;
+        /* border-left: 1px solid #cfd7de; */
+        overflow-x: hidden;
+        overflow-y: auto;
+        visibility: hidden;
+        opacity: 0;
+        display: none;
+
+    }
+    nav.active{
+        display: block;
+        visibility: visible;
+        opacity:1;
+    }
+    nav > ul > li > .sub{
+        position: relative;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-height: 70vh;
+    background: rgb(0, 0, 0);
+    text-align: left;
+    margin-top: 10px;
+    visibility: visible;
+    opacity: 1;
+    -webkit-transition: all ease 0.5s;
+    transition: all ease 0.5s;
+    border-radius: 0px;
+    -webkit-box-shadow: 0 0 0 1px rgb(136 152 170 / 10%), 0 15px 35px 0 rgb(49 49 93 / 10%), 0 5px 15px 0 rgb(0 0 0 / 8%);
+    box-shadow: 0 0 0 1px rgb(136 152 170 / 10%), 0 15px 35px 0 rgb(49 49 93 / 10%), 0 5px 15px 0 rgb(0 0 0 / 8%);
+    overflow: auto;
+    }
+    nav > ul,
+
+    nav > ul > li,
+
+    nav > ul > li > a {
+
+        display: block;
+
+        color: rgb(255, 255, 255)!important;
+text-align: left;
+padding-left: 0;
+    }
+    nav > ul > li > .sub > li > a{
+        background: rgb(73 80 87);
+        border-bottom: 1px solid rgb(63 68 74);
+        font-size: 15px;
+    }
+    nav > ul > li {
+
+        padding: 5px 15px;
+
+        /* border-top: 1px solid #2aa2d926; */
+
+    }
+
+    header form {
+
+        min-width: 300px;
+
+        margin-left: 30px;
+
+    }
+
+    .hideBIg{
+        display: block;
+    }
+    
+    .navBasket{
+        margin-top:29px;
+    margin-right: 82px;
+    }
+    
+    .logo {
+        float: none;
+        margin: -83px auto 0px;
+        width: 258px;
+    }
+    .topNav{
+        padding: 20px 0px 0px;
+        transform: translateY(44px);
+        -webkit-transform: translateY(44px);
+        -moz-transform: translateY(44px);
+        -ms-transform: translateY(44px);
+        -o-transform: translateY(44px);
+}
+    .topNav .colL{
+        display: none
+    }
+    .topNav .colR{
+        width: 100%;
+        flex-direction: column;
+    }
+    .top-lnks{
+        justify-content: center;
+        margin-right: 0px;
+        margin-bottom: 10px;
+    }
+    header .contain{
+        width: 100%;
+    }
+    .topNav .contain > .flex{
+        width: 400px;
+        margin:0px auto;
+    }
+    .social-icons{
+        justify-content: center;
+    }
+    .navBasket{
+        display: none;
+    }
+   /* ======================home============== */
+   #banner{
+       position: relative;
+   }
+   #banner .item{
+    height: 400px;
+   }
+   #abt{
+       margin-top: auto;
+   }
+   .inner-box{
+    padding: 20px 20px;
+   }
+
+   /* ===============about us========= */
+   .about-page{
+       height: 400px;
+   }
+   /* ==========gallery============ */
+   .banner-less-page{
+       margin-top: auto!important;
+   }
+   .imgGallery a{
+       height: auto;
+   }
+   .all-page-cntnt ul{
+    margin-left: 24px;
+}
+
+/* =================menu======== */
+.sub-menu-dishes p{
+    width: 50%;
+}
+/* ============pricing-plans======== */
+.col-pricing{
+    width: 50%;
+}
+.outer-col-pricing{
+    justify-content: center;
+}
+.col-pricing:last-child{
+    margin-top: 60px;
+}
+}
+
+
+
+
+
+
+
+@media screen and (max-width:767px) {
+    .outer-image .left-quote{
+        padding-right: 0px;
+    }
+    .outer-image .left-quote h4{
+        font-size: 37px;
+        line-height: 1em;
+    }
+    #abt .cntnt{
+        margin-bottom: 20px;
+    }
+    #abt{
+        padding-bottom: 40px;
+    }
+}
+
+@media screen and (max-width:580px) {
+   
+    #banner .item {
+        height: 300px;
+    }
+
+    .outer-flex .flex .col:first-child , .outer-flex .flex .col:last-child{
+        width: 100%;
+    }
+    .outer-flex .flex:nth-child(odd) , .outer-flex .flex{
+        flex-direction: column-reverse;
+    }
+    .outer-flex .flex .col .image{
+        height: auto;
+    }
+    .inner-box{
+        height: auto;
+    }
+
+    /* ========footer======= */
+    footer .colL{
+        width: 100%;
+        padding-left: 0;
+    }
+    footer .colR{
+        width: 100%;
+        padding-right: 0;
+        margin-top: 20px;
+    }
+    /* ===========about page======= */
+    .team-grid .col{
+        width: 100%;
+    }
+    
+    /* =========events========= */
+    .cstm-list li{
+        width: 100%;
+    }
+}
+
+
+
+
+
+
+
+@media screen and (max-width:480px) {
+    .topNav .contain > .flex{
+        width: 100%;
+    }
+    #banner .item {
+        height: 300px;
+    }
+
+    .outer-flex .flex .col:first-child , .outer-flex .flex .col:last-child{
+        width: 100%;
+    }
+    .outer-flex .flex:nth-child(odd) , .outer-flex .flex{
+        flex-direction: column-reverse;
+    }
+    .outer-flex .flex .col .image{
+        height: auto;
+    }
+    .inner-box{
+        height: auto;
+    }
+    #abt .cntnt{
+        margin-bottom: 20px;
+    }
+    #abt{
+        padding-bottom: 20px;
+    }
+
+    /* ========footer======= */
+    footer .colL{
+        width: 100%;
+        padding-left: 0;
+    }
+    footer .colR{
+        width: 100%;
+        padding-right: 0;
+        margin-top: 20px;
+    }
+    /* ===============about us========= */
+   .about-page{
+       height: 200px;
+   }
+   .team-grid .col{
+       width: 100%;
+   }
+   /* =======event========== */
+   #owl-pro .item{
+       height: auto;
+   }
+   .owl-prev, .owl-next{
+       top: 39%;
+   }
+   .cmn-gallery{
+    padding: 30px 0px 0px;
+   }
+   .outer-image .left-quote{
+
+       width: 100%;
+       padding-right: 0px;
+   }
+   .outer-image .left-quote h4{
+    font-size: 32px;
+    line-height: 1em;
+   }
+
+   /* ========menu======= */
+   .sub-menu-dishes p{
+       width: 100%;
+   }
+   /* =======pricing========= */
+   .col-pricing{
+    width: 100%;
+    }
+    .col-pricing:nth-child(2){
+        margin-top: 60px;
+    }
+}
+
+
+
+
+
+
+
+@media screen and (max-width:380px) {
+   
+}
+
+
+
+@media screen and (min-width:320px) and (max-width:330px) {
+    #banner .item {
+        height: 210px;
+    }
+    #abt .cntnt h1{
+        font-size: 26px;
+    }
+    header{
+        height: 245px;
+    }
+    .logo {
+        margin: -100px auto 0px;
+    }
+    .toggle{
+        margin-top: 26px;
+    }
+    body{
+        padding-top: 245px;
+    }
+    nav{
+        top: 243px;
+    }
+}
+
+
+
+@media screen and (min-width:411px) and (max-width:420px) {
+
+
+
+ 
+
+
+
+}
+
+
+
