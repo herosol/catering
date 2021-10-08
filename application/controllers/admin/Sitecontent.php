@@ -26,7 +26,7 @@ class Sitecontent extends Admin_Controller
             if(!is_array($content_row))
                 $content_row = array();
             
-            for($i = 1; $i <= 3; $i++) {
+            for($i = 1; $i <= 8; $i++) {
                 if (isset($_FILES["image".$i]["name"]) && $_FILES["image".$i]["name"] != "") {
                     
                     $image = upload_file(UPLOAD_PATH.'images/', 'image'.$i);
@@ -272,6 +272,134 @@ class Sitecontent extends Admin_Controller
         $this->load->view(ADMIN . '/includes/siteMaster', $this->data);
     }
 
+    public function menu_content()
+    {
+        $this->data['enable_editor'] = TRUE;
+        $this->data['pageView'] = ADMIN . '/site_e_menus_content';
+        $id = $this->uri->segment(4);
+        if(isset($id))
+        {
+            $this->data['record'] = $this->master->getRow('mini_sliders', ['id'=> $id]);
+        }
+        $this->data['id'] = $id;
+        if ($vals = $this->input->post()) {
+            $content_row = $this->master->getRow($this->table_name, array('ckey' => 'menus'));
+            $content_row = unserialize($content_row->code);
+
+            if(!is_array($content_row))
+                $content_row = array();
+            
+            for($i = 1; $i <= 3; $i++) {
+                if (isset($_FILES["image".$i]["name"]) && $_FILES["image".$i]["name"] != "") {
+                    
+                    $image = upload_file(UPLOAD_PATH.'images/', 'image'.$i);
+                    generate_thumb(UPLOAD_PATH.'images/',UPLOAD_PATH.'images/',$image['file_name'],600,'thumb_');
+                    if(!empty($image['file_name'])){
+                        if(isset($content_row['image'.$i]))
+                            $this->remove_file(UPLOAD_PATH."images/".$content_row['image'.$i]);
+                            $this->remove_file(UPLOAD_PATH."images/thumb_".$content_row['image'.$i]);
+                        $vals['image'.$i] = $image['file_name'];
+                    }
+                }
+            }
+
+            $data = serialize(array_merge($content_row, $vals));
+            $this->master->save($this->table_name,array('code' => $data),'ckey', 'menus');
+            setMsg('success', 'Settings updated successfully !');
+            redirect(ADMIN . "/sitecontent/menu_content");
+            exit;
+        }
+
+        $this->data['cards'] = $this->master->getRows('mini_sliders', ['page'=> 'menus']);
+        $this->data['row'] = $this->master->getRow($this->table_name, array('ckey' => 'menus'));
+        $this->data['row'] = unserialize($this->data['row']->code);
+        $this->load->view(ADMIN . '/includes/siteMaster', $this->data);
+    }
+
+    public function menus()
+    {
+        $this->data['enable_editor'] = TRUE;
+        $this->data['pageView'] = ADMIN . '/site_e_menus';
+        $id = $this->uri->segment(4);
+        if(isset($id))
+        {
+            $this->data['record'] = $this->master->getRow('menus', ['id'=> $id]);
+        }
+        $this->data['id'] = $id;
+        if ($vals = $this->input->post()) {
+            $content_row = $this->master->getRow($this->table_name, array('ckey' => 'menus'));
+            $content_row = unserialize($content_row->code);
+
+            if(!is_array($content_row))
+                $content_row = array();
+            
+            for($i = 1; $i <= 3; $i++) {
+                if (isset($_FILES["image".$i]["name"]) && $_FILES["image".$i]["name"] != "") {
+                    
+                    $image = upload_file(UPLOAD_PATH.'images/', 'image'.$i);
+                    generate_thumb(UPLOAD_PATH.'images/',UPLOAD_PATH.'images/',$image['file_name'],600,'thumb_');
+                    if(!empty($image['file_name'])){
+                        if(isset($content_row['image'.$i]))
+                            $this->remove_file(UPLOAD_PATH."images/".$content_row['image'.$i]);
+                            $this->remove_file(UPLOAD_PATH."images/thumb_".$content_row['image'.$i]);
+                        $vals['image'.$i] = $image['file_name'];
+                    }
+                }
+            }
+
+            $data = serialize(array_merge($content_row, $vals));
+            $this->master->save($this->table_name,array('code' => $data),'ckey', 'menus');
+            setMsg('success', 'Settings updated successfully !');
+            redirect(ADMIN . "/sitecontent/menus");
+            exit;
+        }
+
+        $this->data['menus'] = $this->master->getRows('menus');
+        $this->data['row'] = $this->master->getRow($this->table_name, array('ckey' => 'menus'));
+        $this->data['row'] = unserialize($this->data['row']->code);
+        $this->load->view(ADMIN . '/includes/siteMaster', $this->data);
+    }
+
+    public function menu_detail($id)
+    {
+        $this->data['enable_editor'] = TRUE;
+        $this->data['pageView'] = ADMIN . '/site_menu_detail';
+        if ($vals = $this->input->post())
+        {
+            $content_row = $this->master->getRow('menus', array('id' => $id));
+            $content_row = unserialize($content_row->code);
+
+            if(!is_array($content_row))
+                $content_row = array();
+
+                for($i = 1; $i <= 3; $i++) {
+                    if (isset($_FILES["image".$i]["name"]) && $_FILES["image".$i]["name"] != "") {
+                        
+                        $image = upload_file(UPLOAD_PATH.'images/', 'image'.$i);
+                        generate_thumb(UPLOAD_PATH.'images/',UPLOAD_PATH.'images/',$image['file_name'],600,'thumb_');
+                        if(!empty($image['file_name'])){
+                            if(isset($content_row['image'.$i]))
+                                $this->remove_file(UPLOAD_PATH."images/".$content_row['image'.$i]);
+                                $this->remove_file(UPLOAD_PATH."images/thumb_".$content_row['image'.$i]);
+                            $vals['image'.$i] = $image['file_name'];
+                        }
+                    }
+                }
+        
+
+            $data = serialize(array_merge($content_row, $vals));
+            $this->master->save('menus', ['code' => $data], 'id', $id);
+            setMsg('success', 'Settings updated successfully !');
+            redirect(ADMIN . "/sitecontent/menu_detail/" . $id);
+            exit;
+        }
+
+        $this->data['record'] = $this->master->getRow('menus', array('id' => $id));
+        $this->data['row']    = unserialize($this->data['record']->code);
+        // pr($this->data);
+        $this->load->view(ADMIN . '/includes/siteMaster', $this->data);
+    }
+
     public function drinks()
     {
         $this->data['enable_editor'] = TRUE;
@@ -440,6 +568,11 @@ class Sitecontent extends Admin_Controller
         $this->data['enable_editor'] = TRUE;
         $this->data['pageView'] = ADMIN . '/site_about';
         $id = $this->uri->segment(4);
+        if(isset($id))
+        {
+            $this->data['record'] = $this->master->getRow('team', ['id'=> $id]);
+        }
+        $this->data['id'] = $id;
         if ($vals = $this->input->post()) {
             $content_row = $this->master->getRow($this->table_name, array('ckey' => 'about'));
             $content_row = unserialize($content_row->code);
@@ -468,6 +601,7 @@ class Sitecontent extends Admin_Controller
             exit;
         }
 
+        $this->data['team'] = $this->master->getRows('team', ['status'=> '1']);
         $this->data['row'] = $this->master->getRow($this->table_name, array('ckey' => 'about'));
         $this->data['row'] = unserialize($this->data['row']->code);
         $this->load->view(ADMIN . '/includes/siteMaster', $this->data);
@@ -508,105 +642,6 @@ class Sitecontent extends Admin_Controller
 
         $this->data['row'] = $this->master->getRow($this->table_name, array('ckey' => 'contact'));
         $this->data['row'] = unserialize($this->data['row']->code);
-        $this->load->view(ADMIN . '/includes/siteMaster', $this->data);
-    }
-    
-    function terms_conditions() 
-    {
-        $this->data['enable_editor'] = TRUE;
-        $this->data['pageView'] = ADMIN . '/site_terms_conditions';
-        if ($vals = $this->input->post()) {
-            $content_row = $this->master->getRow($this->table_name, array('ckey' => 'terms_conditions'));
-            $content_row = unserialize($content_row->code);
-            if(!is_array($content_row))
-                $content_row = array();
-            for($i = 1; $i <= 1; $i++) {
-                if (isset($_FILES["image".$i]["name"]) && $_FILES["image".$i]["name"] != "") {
-
-                    $image = upload_file(UPLOAD_PATH.'images/', 'image'.$i);
-                    if(!empty($image['file_name'])){
-                        if(isset($content_row['image'.$i]))
-                            $this->remove_file(UPLOAD_PATH."images/".$content_row['image'.$i]);
-                        $vals['image'.$i] = $image['file_name'];
-                    }
-                }
-            }
-            unset($vals['detail']);
-            $data = serialize(array_merge($content_row,$vals));
-            $this->master->save($this->table_name, array('code' => $data, 'full_code' => $this->input->post('detail')), 'ckey', 'terms_conditions');
-            setMsg('success', 'Settings updated successfully !');
-            redirect(ADMIN . "/sitecontent/terms_conditions");
-            exit;
-        }
-
-        $this->data['content'] = $this->master->getRow($this->table_name, array('ckey' => 'terms_conditions'));
-        $this->data['row'] = unserialize($this->data['content']->code);
-        $this->load->view(ADMIN . '/includes/siteMaster', $this->data);
-    }
-
-
-    function privacy_policy() {
-        $this->data['enable_editor'] = TRUE;
-        $this->data['pageView'] = ADMIN . '/site_privacy_policy';
-        if ($vals = $this->input->post()) {
-            $content_row = $this->master->getRow($this->table_name, array('ckey' => 'privacy_policy'));
-            $content_row = unserialize($content_row->code);
-            if(!is_array($content_row))
-                $content_row = array();
-            for($i = 1; $i <= 1; $i++) {
-                if (isset($_FILES["image".$i]["name"]) && $_FILES["image".$i]["name"] != "") {
-
-                    $image = upload_file(UPLOAD_PATH.'images/', 'image'.$i);
-                    if(!empty($image['file_name'])){
-                        if(isset($content_row['image'.$i]))
-                            $this->remove_file(UPLOAD_PATH."images/".$content_row['image'.$i]);
-                        $vals['image'.$i] = $image['file_name'];
-                    }
-                }
-            }
-            unset($vals['detail']);
-            $data = serialize(array_merge($content_row,$vals));
-            $this->master->save($this->table_name, array('code' => $data, 'full_code' => $this->input->post('detail')), 'ckey', 'privacy_policy');
-            setMsg('success', 'Settings updated successfully !');
-            redirect(ADMIN . "/sitecontent/privacy_policy");
-            exit;
-        }
-
-        $this->data['content'] = $this->master->getRow($this->table_name, array('ckey' => 'privacy_policy'));
-        $this->data['row'] = unserialize($this->data['content']->code);
-        $this->load->view(ADMIN . '/includes/siteMaster', $this->data);
-    }
-
-    function faq()
-    {
-        $this->data['enable_editor'] = TRUE;
-        $this->data['pageView'] = ADMIN . '/site_faq';
-        if ($vals = $this->input->post()) {
-            $content_row = $this->master->getRow($this->table_name, array('ckey' => 'faq'));
-            $content_row = unserialize($content_row->code);
-            if(!is_array($content_row))
-                $content_row = array();
-            
-            for($i = 1; $i <= 1; $i++) {
-                if (isset($_FILES["image".$i]["name"]) && $_FILES["image".$i]["name"] != "") {
-
-                    $image = upload_file(UPLOAD_PATH.'images/', 'image'.$i);
-                    if(!empty($image['file_name'])){
-                        if(isset($content_row['image'.$i]))
-                            $this->remove_file(UPLOAD_PATH."images/".$content_row['image'.$i]);
-                        $vals['image'.$i] = $image['file_name'];
-                    }
-                }
-            }
-            $data = serialize(array_merge($content_row, $vals));
-            $this->master->save($this->table_name, array('code' => $data, 'full_code' => $this->input->post('detail')), 'ckey', 'faq');
-            setMsg('success', 'Settings updated successfully !');
-            redirect(ADMIN . "/sitecontent/faq");
-            exit;
-        }
-
-        $this->data['content'] = $this->master->getRow($this->table_name, array('ckey' => 'faq'));
-        $this->data['row'] = unserialize($this->data['content']->code);
         $this->load->view(ADMIN . '/includes/siteMaster', $this->data);
     }
 
@@ -670,6 +705,46 @@ class Sitecontent extends Admin_Controller
         }
     }
 
+    public function save_team_member()
+    {
+        
+        if ($vals = $this->input->post())
+        {
+            $id = $this->input->post('id');
+            $data = 
+            [
+                'mem_name'        => $vals['mem_name'],
+                'mem_designation' => $vals['mem_designation'],
+                'mem_description' => $vals['mem_description']
+            ];
+
+            $this->master->save('team', $data, 'id', $id);
+            setMsg('success', 'Member saved successfully !');
+            redirect(ADMIN . "/sitecontent/about");
+            exit;
+        }
+    }
+
+    public function save_menu_name()
+    {
+        
+        if ($vals = $this->input->post())
+        {
+            $id = $this->input->post('id');
+            $data = 
+            [
+                'menu_name'        => $vals['menu_name'],
+                'menu_slug'        => toSlugUrl($vals['menu_name'])
+            ];
+
+            $this->master->save('menus', $data, 'id', $id);
+            setMsg('success', 'Member saved successfully !');
+            redirect(ADMIN . "/sitecontent/menus");
+            exit;
+        }
+    }
+    
+
     public function save_mini_slider()
     {
         
@@ -679,6 +754,7 @@ class Sitecontent extends Admin_Controller
             if (isset($_FILES["image"]["name"]) && $_FILES["image"]["name"] != "")
             {
                 $image = upload_file(UPLOAD_PATH.'images', 'image');
+                generate_thumb(UPLOAD_PATH.'images/', UPLOAD_PATH.'images/', $image['file_name'], 600, 'thumb_');
                 if (!empty($image['file_name'])) 
                 {
                     $vals['image'] = $image['file_name'];
@@ -719,7 +795,14 @@ class Sitecontent extends Admin_Controller
             $data['page'] = $vals['page'];
             $this->master->save('mini_sliders', $data, 'id', $id);
             setMsg('success', 'Image saved successfully !');
-            redirect(ADMIN . "/sitecontent/" .  $vals['page']);
+            if( $vals['page'] == 'menus')
+            {
+                redirect(ADMIN . "/sitecontent/menu_content");
+            }
+            else
+            {
+                redirect(ADMIN . "/sitecontent/" . $redirectTo);
+            }
             exit;
         }
     }
@@ -733,9 +816,24 @@ class Sitecontent extends Admin_Controller
         exit;
     }
 
-    
-    
+    function delete_team_mem($id, $redirectTo = 'about')
+    {
+        $id = intval($id);
+        $this->master->delete_where('team', ['id'=> $id]);
+        setMsg('success', 'Member has been deleted successfully.');
+        redirect(ADMIN . "/sitecontent/" . $redirectTo);
+        exit;
+    }
 
+    function delete_menus($id, $redirectTo = 'menus')
+    {
+        $id = intval($id);
+        $this->master->delete_where('menus', ['id'=> $id]);
+        setMsg('success', 'Member has been deleted successfully.');
+        redirect(ADMIN . "/sitecontent/" . $redirectTo);
+        exit;
+    }
+    
     public function delete()
     {
         $arr = $this->input->post('delete');

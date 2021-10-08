@@ -41,12 +41,14 @@
         <div class="menu-bx">
             <h4><strong>Christmas Dinner</strong> <span>£45.00 PH<span></h4>
         </div>
+        
         <div class="outer-image">
             <div class="left-quote">
                 <h4>"There is no sincerer love than the love of food"</h4>
                 <h6>- GEORGE BERNARD SHAW</h6>
             </div>
         </div>
+
         <p>Quality the nunc bibe endum in finibus elit eget they solli citudin elit. Phaselu the rutrum in lacusu euismod. Vestibulum eleifend tortor orci eu ornare tortor semta. Duis scelerisque the nise duru the look. Liwense eu nunc bibe endum in finibus elit eget the solli citudin elit. Drae tnea rutierum in lacus. Winta the nunc bibe endum in finibus elit eget they solli citudin elit. Phaselu the rutrum in lacusu euismod. Vestibulum eleifend tortor orci ornare torte sempeni. Luiste scelerisque the nise duru the look.</p>
         <p><strong>Call us :</strong> Why not call us on <a href="tel:413-248-8118">413-248-8118</a> to discuss your requirements, our friendly team will be more than happy to assist you.</p>
         <p><a href="contact.php"><strong>Send an Enquiry</strong></a> : Fill out our online form to send us an email and we will get back to you as soon as possible.</p>

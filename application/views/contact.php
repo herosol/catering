@@ -1,11 +1,11 @@
 <!doctype html>
 <html>
 <head>
-<title>Contact Us - Halo Catering</title>
-<?php require_once('includes/site-master.php'); ?>
+<title><?=$page_title?> — <?=$site_settings->site_name?></title>
+<?php $this->load->view('includes/site-master'); ?>
 </head>
 <body id="home-page">
-<?php require_once('includes/header.php'); ?>
+<?php $this->load->view('includes/header'); ?>
 <main>
 <section id="banner" class="about-page">
 	
@@ -15,21 +15,17 @@
     <div class="cntnt">
 		<div class="contain">
 			<div class="text-center">
-				<h1>Halo Catering Contact Us</h1>
-				<p>Get in touch today</p>
+				<h1><?=$content['main_heading']?></h1>
+				<p><?=$content['main_heading_tagline']?></p>
 			</div>
         </div>
 	</div>
 	<div class="contain">
-	    <h4>Thank you for visiting the Halo Catering Services website. Our contact details are as follows.</h4>
-        <p>602A High Road, </br>Seven Kings Road, </br>Ilford, England IG3 8BU</p>
-        <a href="callto:413-248-8118">Call : 413-248-8118</a>
-        <a href="mailto:info@halo_catering.com">Mail : info@halo_catering.com</a>
-        <p>Company Regn. No. 75927495 (England)</p>
+		<?=$content['main_content']?>
     </div>
 </section>
 
 </main>
-<?php require_once('includes/footer.php'); ?>
+<?php $this->load->view('includes/footer'); ?>
 </body>
 </html>

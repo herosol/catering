@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-<title>Home - Halo Catering</title>
+<title><?=$page_title?> — <?=$site_settings->site_name?></title>
 <?php $this->load->view('includes/site-master'); ?>
 </head>
 <body id="home-page">
@@ -9,21 +9,7 @@
 <main>
 <section id="banner">
 	<div class="bannerSlider owl-carousel owl-theme" id="owl-SmBanner">
-        <div class="item">
-            <div class="image">
-                <img src="<?= base_url() ?>assets/images/slider3.jpg">
-            </div>
-        </div>
-        <div class="item">
-            <div class="image">
-                <img src="<?= base_url() ?>assets/images/slider2.jpg">
-            </div>
-        </div>
-        <div class="item">
-            <div class="image">
-                <img src="<?= base_url() ?>assets/images/slider1.jpg">
-            </div>
-        </div>
+		<?=main_slider($content)?>
     </div>
 </section>
 
@@ -31,8 +17,8 @@
     <div class="cntnt">
 		<div class="contain">
 			<div class="text-center">
-				<h1>Halo Catering</h1>
-				<p>Quality the nunc bibe endum in finibus elit eget they solli citudin elit.</p>
+				<h1><?=$content['main_heading']?></h1>
+				<p><?=$content['main_heading_tagline']?></p>
 			</div>
         </div>
 	</div>
@@ -41,17 +27,17 @@
 			<div class="flex">
 				<div class="col">
 					<div class="inner-box">
-						<h2>Catering Event Services</h2>
-						<a href="wedding.php">Weddings</a>
-						<a href="corporate.php">Corporate</a>
-						<a href="wakes.php">Wakes</a>
-						<a href="birthday.php">Birthdays / Parties</a>
-						<a href="christmas.php">Christmas</a>
+						<h2><?=$content['banner_heading1']?></h2>
+                        <a href="<?= base_url() ?>events/weddings">Weddings</a>
+                        <a href="<?= base_url() ?>events/corporate">Corporate</a>
+                        <a href="<?= base_url() ?>events/wakes">Wakes</a>
+                        <a href="<?= base_url() ?>events/parties">Birthdays / Parties</a>
+                        <a href="<?= base_url() ?>events/christmas">Christmas</a>
 					</div>
 				</div>
 				<div class="col">
 					<div class="image">
-						<img src="<?= base_url() ?>assets/images/34.jpg">
+						<img src="<?= !empty($content['image4']) ? getImageSrc(UPLOAD_PATH."images/", $content['image4']) : 'http://placehold.it/3000x1000' ?>">
 					</div>
 				</div>
 			</div>
@@ -59,15 +45,15 @@
 			<div class="flex">
 				<div class="col">
 					<div class="inner-box">
-						<h2>Cake Shop</h2>
-						<p>Quality the nunc bibe endum in finibus elit eget they solli citudin elit.</p>
-						<a href="cake.php">Wedding cakes</a>
-						<a href="cake.php">Birthday cakes</a>
+						<h2><?=$content['banner_heading2']?></h2>
+						<p><?=$content['banner_detail2']?></p>
+						<a href="<?= base_url() ?>cake">Wedding cakes</a>
+						<a href="<?= base_url() ?>cake">Birthday cakes</a>
 					</div>
 				</div>
 				<div class="col">
 					<div class="image">
-						<img src="<?= base_url() ?>assets/images/37.jpg">
+						<img src="<?= !empty($content['image5']) ? getImageSrc(UPLOAD_PATH."images/", $content['image5']) : 'http://placehold.it/3000x1000' ?>">
 					</div>
 				</div>
 			</div>
@@ -75,14 +61,14 @@
 			<div class="flex">
 				<div class="col">
 					<div class="inner-box">
-						<h2>Drinks</h2>
-						<p>Quality the nunc bibe endum in finibus elit eget they solli citudin elit.</p>
-						<a href="drink.php">Beverages Magic</a>
+						<h2><?=$content['banner_heading3']?></h2>
+						<p><?=$content['banner_detail3']?></p>
+						<a href="<?= base_url() ?>drinks">Beverages Magic</a>
 					</div>
 				</div>
 				<div class="col">
 					<div class="image">
-						<img src="<?= base_url() ?>assets/images/drin.jpg">
+						<img src="<?= !empty($content['image6']) ? getImageSrc(UPLOAD_PATH."images/", $content['image6']) : 'http://placehold.it/3000x1000' ?>">
 					</div>
 				</div>
 			</div>
@@ -90,14 +76,14 @@
 			<div class="flex">
 				<div class="col">
 					<div class="inner-box">
-						<h2>Mirror photo booth</h2>
-						<p>Quality the nunc bibe endum in finibus elit eget they solli citudin elit.</p>
-						<a href="mirror.php">Mirror Photo Booth</a>
+						<h2><?=$content['banner_heading4']?></h2>
+						<p><?=$content['banner_detail4']?></p>
+						<a href="<?= base_url() ?>mirror-photo-booth">Mirror Photo Booth</a>
 					</div>
 				</div>
 				<div class="col">
 					<div class="image">
-						<img src="<?= base_url() ?>assets/images/booth.jpg">
+						<img src="<?= !empty($content['image7']) ? getImageSrc(UPLOAD_PATH."images/", $content['image7']) : 'http://placehold.it/3000x1000' ?>">
 					</div>
 				</div>
 			</div>
@@ -105,13 +91,13 @@
 			<div class="flex">
 				<div class="col">
 					<div class="inner-box">
-					    <a href="gallery.php">Gallery</a>
-						<a href="contact.php">Contact Us</a>
+					    <a href="<?= base_url() ?>gallery">Gallery</a>
+						<a href="<?= base_url() ?>contact-us">Contact Us</a>
 					</div>
 				</div>
 				<div class="col">
 					<div class="image">
-						<img src="<?= base_url() ?>assets/images/slide-2.jpg">
+						<img src="<?= !empty($content['image8']) ? getImageSrc(UPLOAD_PATH."images/", $content['image8']) : 'http://placehold.it/3000x1000' ?>">
 					</div>
 				</div>
 			</div>

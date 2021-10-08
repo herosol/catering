@@ -40,6 +40,38 @@ function upload_vfile($field_name, $type = 'image', $size = 2100000)
     }
 }
 
+function main_slider($content)
+{
+    $html = '';
+    $html .= '<div class="item">
+        <div class="image">
+            <img src="'.(!empty($content['image1']) ? getImageSrc(UPLOAD_PATH."images/", $content['image1']) : 'http://placehold.it/3000x1000').'">
+        </div>
+    </div>
+    <div class="item">
+        <div class="image">
+        <img src="'.(!empty($content['image2']) ? getImageSrc(UPLOAD_PATH."images/", $content['image2']) : 'http://placehold.it/3000x1000').'">
+        </div>
+    </div>
+    <div class="item">
+        <div class="image">
+            <img src="'.(!empty($content['image3']) ? getImageSrc(UPLOAD_PATH."images/", $content['image3']) : 'http://placehold.it/3000x1000').'">
+        </div>
+    </div>';
+    return $html;
+}
+
+function mini_slider($sliders)
+{
+    $html = '';
+    foreach($sliders as $slider): 
+        $html .= '<div class="item">
+                    <img src="'.(!empty($slider->image) ? getImageSrc(UPLOAD_PATH."images/", $slider->image) : 'http://placehold.it/3000x1000').'">
+                </div>';
+    endforeach;
+    return $html;
+}
+
 function get_vsize_dirs()
 {
     return array('50' => 'p50x50/', '150' => 'p150x150/', '300' => 'p300x300/', '350' => 'p350x350/', '400' => 'p400x400/');

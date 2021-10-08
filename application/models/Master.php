@@ -82,7 +82,7 @@ class Master extends CI_Model
 	}
     public function getRow($table, $where = '', $array = false, $order_by = '')
     {
-
+        // pr($where);
         if (!empty($where))
             $this->db->where($where);
              $query = $this->db->get($table);

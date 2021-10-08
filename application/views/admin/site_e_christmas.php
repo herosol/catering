@@ -119,6 +119,14 @@
                                 <label for="before_image_content" class="control-label"> Before Image Content <span class="symbol required">*</span></label>
                                 <textarea name="before_image_content" rows="3" class="form-control ckeditor" required=""><?= $row['before_image_content'] ?></textarea>
                             </div>
+                            <div class="col-md-12">
+                                <label for="mid_banner_heading" class="control-label"> Banner Heading <span class="symbol required">*</span></label>
+                                <input type="text" name="mid_banner_heading" value="<?= $row['mid_banner_heading'] ?>" class="form-control" >
+                            </div>
+                            <div class="col-md-12">
+                                <label for="mid_banner_quote" class="control-label"> Banner Quote <span class="symbol required">*</span></label>
+                                <input type="text" name="mid_banner_quote" value="<?= $row['mid_banner_quote'] ?>" class="form-control" >
+                            </div>
                             <div class="col-md-12 hidden">
                                 <div class="panel panel-primary" data-collapsed="0">
                                     <div class="panel-heading">

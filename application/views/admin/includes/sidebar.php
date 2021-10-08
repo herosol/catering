@@ -24,10 +24,10 @@
                     <span class="title">Dashboard</span>
                 </a>
             </li>
-            <li class="opened<?= $this->uri->segment('2') == 'contact' ? ' active' : '' ?>">
-                <a href="<?= site_url(ADMIN.'/contact') ?>">
-                    <i class="fa fa-comments"></i>
-                    <span class="title">Contact</span><span class="badge badge-success"><?=new_messages()?></span>
+            <li class="opened<?= $this->uri->segment('2') == 'menus' ? ' active' : '' ?>">
+                <a href="<?= site_url(ADMIN.'/sitecontent/menus') ?>">
+                    <i class="fa fa-bars"></i>
+                    <span class="title">Manage Menus</span>
                 </a>
             </li>
             <li class=" <?= ($this->uri->segment(2) == 'sitecontent' || $this->uri->segment(2) == 'preferences') ? ' opened  active' : '' ?>">
@@ -79,6 +79,12 @@
                                 </a>
                             </li>
                         </ul>
+                    </li>
+                    <li class=" <?= ($this->uri->segment(3) == 'menu_content') ? ' active' : '' ?>">
+                        <a href="<?= site_url(ADMIN.'/sitecontent/menu_content') ?>">
+                            <i class="entypo-doc-text  "></i>
+                            <span class="title">Menus</span>
+                        </a>
                     </li>
                     <li class=" <?= ($this->uri->segment(3) == 'cake') ? ' active' : '' ?>">
                         <a href="<?= site_url(ADMIN.'/sitecontent/cake') ?>">

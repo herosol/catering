@@ -62,16 +62,11 @@ $route['admin/meta-info/manage/(:any)'] = 'admin/Meta_info/manage/$1';
 $route['admin/meta-info/delete/(:any)'] = 'admin/Meta_info/delete/$1';
 
 ##FRONT PAGES
-$route['about-us']         = 'pages/about_us';
-$route['loan-programs']    = 'pages/load_programs';
-$route['rate-calculator']  = 'pages/rate_calculator';
-$route['closed-loan']      = 'pages/closed_loan';
-$route['forms']            = 'pages/forms';
-$route['contact-us']          = 'pages/contact';
-$route['lender-types']     = 'pages/lender_types';
-$route['mortage-types']    = 'pages/mortage_types';
-$route['key-concepts']     = 'pages/key_concepts';
-$route['qualification']    = 'pages/qualification';
-$route['loan-process']     = 'pages/loan_process';
-$route['terms-to-know']    = 'pages/terms_and_conditions';
-$route['faqs']             = 'pages/faq';
+$route['about-us']           = 'pages/about';
+$route['contact-us']         = 'pages/contact';
+$route['events/(:any)']      = 'pages/events/$1';
+$route['menus/(:any)']       = 'pages/menus/$1';
+$route['cake']               = 'pages/cake';
+$route['drinks']             = 'pages/drinks';
+$route['mirror-photo-booth'] = 'pages/mirror';
+$route['gallery']            = 'pages/gallery';

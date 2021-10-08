@@ -53,6 +53,14 @@ function states_by_country($country_id)
     return $query->result();
 }
 
+function menus()
+{
+    global $CI;
+    $CI->db->select("*");
+    $query = $CI->db->get('menus');
+    return $query->result();
+}
+
 function get_servicename($s_id)
 {
     global $CI;

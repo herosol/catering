@@ -135,5 +135,68 @@
 
 
 </div>
-        
+<h3></h3>
+<form role="form" action="<?= base_url().ADMIN ?>/sitecontent/save_team_member"  method="post" class="form-horizontal form-groups-bordered validate" novalidate="novalidate" enctype="multipart/form-data">
+            <h3> <?= !empty($id) ? 'Edit' : 'Add'?> Team Member</h3>
+            <div class="form-group">
+                <input type="hidden" name="id" value="<?=$id?>" />
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <label for="mem_name" class="control-label"> Member Name <span class="symbol required">*</span></label>
+                            <input type="text" name="mem_name" value="<?= $record->mem_name ?>" class="form-control" required>
+                        </div>
+                        <div class="col-md-12">
+                            <label for="mem_designation" class="control-label"> Member Name <span class="symbol required">*</span></label>
+                            <input type="text" name="mem_designation" value="<?= $record->mem_designation ?>" class="form-control" required>
+                        </div>
+                        <div class="col-md-12">
+                            <label for="mem_description" class="control-label "> Detail <span class="symbol required">*</span></label>
+                            <textarea name="mem_description" rows="6" class="form-control ckeditor" ><?= $record->mem_description ?></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                <label for="field-1" class="col-sm-2 control-label "></label>
+                <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary btn-lg col-md-3 pull-right"><i class="fa fa-save"></i> Save</button>
+                </div>
+            </div>
+                </div>
+            </div>
+        </form>
+
+        <table class="table table-bordered datatable" id="table-1">
+                <thead>
+                    <tr>
+                        <th width="5%" class="text-center">Sr#</th>
+                        <th width="60px">Member Name</th>
+                        <th width="20%">Member Designation</th>
+                        <th>Member Description</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php if (count($team) > 0): $count = 0; ?>
+                        <?php foreach ($team as $row): ?>
+                            <tr class="odd gradeX">
+                                <td class="text-center"><?= ++$count; ?></td>
+                                <td><b><?= $row->mem_name ?></b></td>
+                                <td><?= $row->mem_designation; ?></td>
+                                <td><?= $row->mem_description; ?></td>
+                                <td class="text-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> Action <span class="caret"></span></button>
+                                        <ul class="dropdown-menu dropdown-primary" role="menu">
+                                                <li><a href="<?= site_url(ADMIN); ?>/sitecontent/about/<?= $row->id; ?>">Edit</a></li>
+                                                <?php if(access(10)):?>
+                                                    <li><a href="<?= site_url(ADMIN); ?>/sitecontent/delete_team_mem/<?= $row->id; ?>" onclick="return confirm('Are you sure?');">Delete</a></li>
+                                                <?php endif?>
+                                    </ul>
+                                </div>  
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+            </tbody>
+        </table>
 </div>

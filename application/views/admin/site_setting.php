@@ -52,6 +52,12 @@
                     <input type="text" name="site_linkedin" value="<?php if (isset($adminsite_setting->site_linkedin)) echo $adminsite_setting->site_linkedin; ?>" class="form-control">
                 </div>
             </div>
+            <div class="form-group">
+                <div class="col-md-12">
+                    <label class="control-label"> Pinterest Link</label>
+                    <input type="text" name="site_pinterest" value="<?php if (isset($adminsite_setting->site_pinterest)) echo $adminsite_setting->site_pinterest; ?>" class="form-control">
+                </div>
+            </div>
         </div>
         <div class="col-md-6">
             <h3><i class="fa fa-bars"></i> General Detail</h3>
